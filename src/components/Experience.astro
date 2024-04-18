@@ -1,0 +1,37 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+  {
+    date: "Abril - Junio 2023",
+    title: "Codo a codo 4.0",
+    company: "Curso de Especialización en Django",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+  {
+    date: "Junio - Noviembre 2022",
+    title: "Codo a Codo 4.0",
+    company: "Curso de Especialización en React",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+  {
+    date: "Junio - Noviembre 2021",
+    title: "Codo a Codo 4.0",
+    company: "Curso de Python Fullstack",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map(experience =>(
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience}/>
+      </li>
+    ))
+  }
+</ol>
