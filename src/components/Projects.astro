@@ -8,8 +8,15 @@ import Vue from "../icons/Vue.astro"
 import Css from "../icons/Css.astro"
 import Bootstrap from "../icons/Bootstrap.astro"
 import Django from "../icons/Django.astro"
+import C from "../icons/C.astro"
 
 const TAGS = {
+  C: {
+    name: 'C Language',
+    class: 'bg-[#283593] text-white',
+    icon: C,
+  },
+
   REACT: {
     name: 'React',
     class: 'bg-[#3d9eb8] text-white',
@@ -45,8 +52,20 @@ const TAGS = {
 
 const PROJECTS = [
   {
+    title: 'Prototipo Robot Bípedo',
+    description: 'Diseño y montaje de un robot bípedo. Programación de la lógica de movimiento y control de servos, integrando software con hardware mecánico impreso en 3D. (Imagen son propiedad de "makerforgetech". Pendiende de subir imagen propia.)',
+    image: '/projects/robot_bipedo.png',
+    tags: []
+  },
+  {
+    title: 'QR Code Generator (Engine en C)',
+    description: 'Motor de generación de códigos QR programado desde cero en C, con gestión manual de memoria y matrices.',
+    image: '/projects/qr_generator.png',
+    tags: [TAGS.C]
+  },
+  {
     title: 'Viajecitos',
-    description: 'Viajecitos es un sitio web donde simula es un ecommerce de viajes y turismo real donde se puede realizar, reservas de viajes, alojamiento en hoteles o compras de paquetes de guias de turismo.',
+    description: 'Viajecitos es un sitio web donde simula un ecommerce de viajes y turismo real. Donde se puede realizar reservas de viajes, alojamiento en hoteles o compras de paquetes de guias de turismo.',
     link: 'https://viajecitos-react.vercel.app/home',
     github: 'https://github.com/nahuelcerrano/viajecitos-react',
     image: '/projects/viajecitos_project.jpg',
@@ -56,7 +75,6 @@ const PROJECTS = [
   {
     title: 'Ferreteria Maxi',
     description: 'Ferreteria Maxi es un sitio web mayorista de ferreteria donde gestiona los pedidos de los preventistas.',
-    //link: 'https://github.com/nahuelcerrano/grupo2-django',
     github: 'https://github.com/nahuelcerrano/grupo2-django',
     image: '/projects/ferreteria_maxi_project.jpg',
     tags: [TAGS.DJANGO, TAGS.BOOTSTRAP]
@@ -73,7 +91,7 @@ const PROJECTS = [
 
   {
     title: 'Buscador de películas',
-    description: 'Es una simple aplicacíon donde llamo a una API de películas a traves de un imput.',
+    description: 'Es una simple aplicacíon donde llamo a una API de películas a traves de un input.',
     link: 'https://buscador-de-pelis.vercel.app/',
     github: 'https://github.com/nahuelcerrano/buscador-peliculas',
     image: '/projects/buscador-peliculas.jpg',
@@ -90,7 +108,6 @@ const PROJECTS = [
   }
 ]
 
-//React vue django tailwind css Bootstrap
 ---
 
 <div class="flex flex-col gap-y-16">
@@ -126,8 +143,7 @@ const PROJECTS = [
           {github && (
             <LinkButton href={github}>
               <Github class="size-6" />
-              Code
-              
+              Code             
             </LinkButton>
           )}
           {link && (
