@@ -1,4 +1,14 @@
 ---
+import { Image } from "astro:assets"
+
+import viajecitosImg from "../assets/projects/viajecitos_project.jpg"
+import ferreteriaImg from "../assets/projects/ferreteria_maxi_project.jpg"
+import pokemonImg from "../assets/projects/pokemon_app_project.jpg"
+import buscadorPeliculasImg from "../assets/projects/buscador-peliculas.jpg"
+import heroesImg from "../assets/projects/heroes_spa_project.jpg"
+import robotImg from "../assets/projects/robot_bipedo.png"
+import qrImg from "../assets/projects/qr_generator.png"
+
 import React from "../icons/React.astro"
 import Tailwind from "../icons/Tailwind.astro"
 import Github from "../icons/Github.astro"
@@ -54,13 +64,13 @@ const PROJECTS = [
   {
     title: 'Prototipo Robot Bípedo',
     description: 'Diseño y montaje de un robot bípedo. Programación de la lógica de movimiento y control de servos, integrando software con hardware mecánico impreso en 3D. (Imagen son propiedad de "makerforgetech". Pendiende de subir imagen propia.)',
-    image: '/projects/robot_bipedo.png',
+    image: robotImg,
     tags: []
   },
   {
     title: 'QR Code Generator (Engine en C)',
     description: 'Motor de generación de códigos QR programado desde cero en C, con gestión manual de memoria y matrices.',
-    image: '/projects/qr_generator.png',
+    image: qrImg,
     tags: [TAGS.C]
   },
   {
@@ -68,7 +78,7 @@ const PROJECTS = [
     description: 'Viajecitos es un sitio web donde simula un ecommerce de viajes y turismo real. Donde se puede realizar reservas de viajes, alojamiento en hoteles o compras de paquetes de guias de turismo.',
     link: 'https://viajecitos-react.vercel.app/home',
     github: 'https://github.com/nahuelcerrano/viajecitos-react',
-    image: '/projects/viajecitos_project.jpg',
+    image: viajecitosImg,
     tags: [TAGS.REACT, TAGS.TAILWIND]
   },
 
@@ -76,7 +86,7 @@ const PROJECTS = [
     title: 'Ferreteria Maxi',
     description: 'Ferreteria Maxi es un sitio web mayorista de ferreteria donde gestiona los pedidos de los preventistas.',
     github: 'https://github.com/nahuelcerrano/grupo2-django',
-    image: '/projects/ferreteria_maxi_project.jpg',
+    image: ferreteriaImg,
     tags: [TAGS.DJANGO, TAGS.BOOTSTRAP]
   },
 
@@ -85,7 +95,7 @@ const PROJECTS = [
     description: 'Un simple juego hecho con Vue en donde tiene que adivinar que pokemon es.',
     link: 'https://vue-pokemon-app-api.netlify.app/',
     github: 'https://github.com/nahuelcerrano/grupo2-django',
-    image: '/projects/pokemon_app_project.jpg',
+    image: pokemonImg,
     tags: [TAGS.VUE, TAGS.CSS]
   },
 
@@ -94,7 +104,7 @@ const PROJECTS = [
     description: 'Es una simple aplicacíon donde llamo a una API de películas a traves de un input.',
     link: 'https://buscador-de-pelis.vercel.app/',
     github: 'https://github.com/nahuelcerrano/buscador-peliculas',
-    image: '/projects/buscador-peliculas.jpg',
+    image: buscadorPeliculasImg,
     tags: [TAGS.REACT, TAGS.CSS]
   },
 
@@ -103,7 +113,7 @@ const PROJECTS = [
     description: 'Un sitio web donde muestra los hereos de Marvel como de DC, este pequeño proyecto lo hice como ejercicios para aprender React Router.',
     link: 'https://heroes-spa-project.vercel.app/marvel',
     github: 'https://github.com/nahuelcerrano/heroes-spa',
-    image: '/projects/heroes_spa_project.jpg',
+    image: heroesImg,
     tags: [TAGS.REACT, TAGS.BOOTSTRAP]
   }
 ]
@@ -113,49 +123,54 @@ const PROJECTS = [
 <div class="flex flex-col gap-y-16">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-  <div class="w-full md:w-1/2">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
-    </div>
-  </div>
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl      md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <Image
+              src={image}
+              alt={title}
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" 
+              loading="lazy"
+            /> 
+          </div>
+        </div>
 
-  <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-2xl font-bold text-gray-100">
-      {title}
-    </h3>
-    <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-row mb-2 gap-x-2">
-          {tags.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-              >
-                <tag.icon class="size-4" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-      <div class="mt-2 text-gray-400">{description}</div>
-      <footer class="flex items-end justify-start mt-4 gap-x-4">
-          {github && (
-            <LinkButton href={github}>
-              <Github class="size-6" />
-              Code             
-            </LinkButton>
-          )}
-          {link && (
-            <LinkButton href={link}>
-              <Link class="size-4" />
-              Preview
-            </LinkButton>
-          )}
-        </footer>
-    </div>
-  </div>
-</article>
+            <div class="mt-2 text-gray-400">{description}</div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <Github class="size-6" />
+                  Code             
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
     ))
   }
 </div>
