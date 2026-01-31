@@ -34,10 +34,10 @@ cd porfolio-dev
 
 ### 2. Instalar dependencias
 
-Este proyecto utiliza `npm` (o `bun` si prefieres).
+Este proyecto utiliza `bun`.
 
 ```bash
-npm install
+bun install
 
 ```
 
@@ -46,7 +46,7 @@ npm install
 Inicia el servidor local en `http://localhost:4321`.
 
 ```bash
-npm run dev
+bun run dev
 
 ```
 
@@ -55,7 +55,7 @@ npm run dev
 Para generar la versión estática optimizada en la carpeta `dist/`:
 
 ```bash
-npm run build
+bun run build
 
 ```
 
