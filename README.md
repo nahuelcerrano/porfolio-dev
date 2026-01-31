@@ -27,7 +27,7 @@ Si deseas ejecutar este proyecto en tu máquina local, sigue estos pasos:
 
 ### 1. Clonar el repositorio
 ```bash
-git clone [https://github.com/nahuelcerrano/porfolio-dev.git](https://github.com/nahuelcerrano/porfolio-dev.git)
+git clone https://github.com/nahuelcerrano/porfolio-dev.git
 cd porfolio-dev
 
 ```
@@ -65,10 +65,10 @@ npm run build
 
 ```text
 /
-├── public/          # Archivos estáticos (favicon, robots.txt)
+├── public/          # Archivos estáticos
 ├── src/
-│   ├── assets/      # Imágenes optimizadas (WebP, etc.)
-│   ├── components/  # Componentes reutilizables (.astro y .jsx)
+│   ├── assets/      # Imágenes optimizadas
+│   ├── components/  # Componentes reutilizables
 │   ├── layouts/     # Plantillas de diseño principales
 │   ├── pages/       # Rutas del sitio (index.astro)
 │   └── icons/       # Íconos SVG como componentes
