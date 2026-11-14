@@ -11,12 +11,11 @@ Este repositorio contiene el código fuente de mi portafolio personal, diseñado
 
 ## 🚀 Tecnologías Utilizadas
 
-El proyecto aprovecha la arquitectura de "Islas" de Astro para ofrecer un sitio estático de carga ultra rápida, hidratando componentes interactivos de React solo cuando es necesario.
+Sitio 100% estático generado con Astro: sin JavaScript de framework en el cliente, solo un pequeño script para resaltar la sección activa del menú.
 
-* **Core:** [Astro](https://astro.build/) (v5) - Framework web para contenido.
-* **UI Framework:** [React](https://react.dev/) - Para componentes interactivos.
-* **Estilos:** [Tailwind CSS](https://tailwindcss.com/) - Para un diseño moderno y responsive.
-* **Lenguaje:** TypeScript / JavaScript.
+* **Core:** [Astro](https://astro.build/) (v4) - Framework web para contenido.
+* **Estilos:** [Tailwind CSS](https://tailwindcss.com/) (v3) - Para un diseño moderno y responsive.
+* **Lenguaje:** TypeScript.
 * **Deploy:** Vercel.
 
 ---
@@ -65,22 +64,27 @@ bun run build
 
 ```text
 /
-├── public/          # Archivos estáticos
+├── public/              # Archivos estáticos (favicon)
 ├── src/
-│   ├── assets/      # Imágenes optimizadas
-│   ├── components/  # Componentes reutilizables
-│   ├── layouts/     # Plantillas de diseño principales
-│   ├── pages/       # Rutas del sitio (index.astro)
-│   └── icons/       # Íconos SVG como componentes
-└── astro.config.mjs # Configuración del framework
-
+│   ├── assets/          # Imágenes optimizadas por Astro
+│   ├── components/
+│   │   ├── ui/          # Piezas chicas y genéricas (Badge, Tag, LinkButton, Timeline...)
+│   │   └── blocks/      # Secciones de la página (Header, Hero, Projects, Skills...)
+│   ├── data/            # Contenido del sitio: datos personales, experiencia, estudios, skills y proyectos
+│   ├── icons/           # Íconos SVG como componentes
+│   ├── layouts/         # Plantilla base (Layout.astro)
+│   ├── pages/           # Rutas del sitio (index.astro)
+│   └── styles/          # CSS global
+└── astro.config.mjs     # Configuración del framework
 ```
+
+Para actualizar el contenido (un proyecto nuevo, una skill, un cambio de experiencia) alcanza con editar los archivos de `src/data/`.
 
 ---
 
 ## ✨ Características Clave
 
-* **Performance First:** Puntuación de 100/100 en Lighthouse/PageSpeed.
+* **Performance First:** HTML estático e imágenes optimizadas en build.
 * **Responsive Design:** Adaptado a móviles, tablets y escritorio.
 * **SEO Optimized:** Etiquetas meta y estructura semántica correcta.
 * **Carga Diferida:** Optimización de imágenes y scripts para no bloquear el renderizado.
