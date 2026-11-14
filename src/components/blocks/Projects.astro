@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets"
+
+import LinkButton from "@/components/ui/LinkButton.astro"
+import Tag from "@/components/ui/Tag.astro"
+import Github from "@/icons/Github.astro"
+import Link from "@/icons/Link.astro"
+import { PROJECTS } from "@/data/projects"
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, imageAlt, imageClass, imageCredit, title, description, tags, link, github }) => (
+      <article class="flex flex-col gap-8 group md:flex-row">
+        <div class="w-full md:w-1/2">
+          <div class="relative transition duration-500 ease-in-out shadow-xl overflow-clip rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700">
+            <Image
+              src={image}
+              alt={imageAlt ?? `Captura del proyecto ${title}`}
+              widths={[400, 800]}
+              sizes="(min-width: 768px) 400px, 100vw"
+              class:list={[
+                "object-cover w-full transition duration-500 md:scale-110 md:group-hover:scale-105",
+                imageClass ?? "object-top h-56 sm:h-full",
+              ]}
+              loading="lazy"
+            />
+          </div>
+          {imageCredit && <p class="mt-2 text-xs text-gray-500">{imageCredit}</p>}
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-100">{title}</h3>
+          <ul class="flex flex-wrap gap-2 mt-2">
+            {tags.map((tag) => (
+              <li>
+                <Tag tag={tag} />
+              </li>
+            ))}
+          </ul>
+
+          <p class="mt-4 text-gray-400 text-pretty">{description}</p>
+          {
+            (github || link) && (
+              <footer class="flex items-end justify-start mt-4 gap-x-4">
+                {github && (
+                  <LinkButton href={github}>
+                    <Github class="size-6" />
+                    Código
+                  </LinkButton>
+                )}
+                {link && (
+                  <LinkButton href={link}>
+                    <Link class="size-4" />
+                    Demo
+                  </LinkButton>
+                )}
+              </footer>
+            )
+          }
+        </div>
+      </article>
+    ))
+  }
+</div>

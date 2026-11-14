@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets"
+
+import profileImg from "@/assets/profile.png"
+import { SITE } from "@/data/site"
+---
+
+<article class="flex flex-col items-center justify-center gap-8 text-gray-300 md:flex-row">
+  <div
+    class="[&>p]:mb-4 [&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+  >
+    <p>
+      Soy <strong>estudiante de Ingeniería en Sistemas Informáticos</strong> en la UAI y
+      desarrollador apasionado por entender cómo funcionan las cosas, desde un componente
+      de React en el frontend hasta la gestión de memoria en C.
+    </p>
+    <p>
+      Desde 2025 soy <strong>pasante de investigación</strong> en el Laboratorio de Robótica
+      e Inteligencia Artificial de CAETI, donde diseño, imprimo y programo un
+      <strong>robot bípedo</strong>. Ahí aprendí a diagnosticar con método, documentar cada
+      prueba y resolver problemas donde el software se encuentra con el hardware.
+    </p>
+    <p>
+      Me muevo cómodo en <strong>Linux (Manjaro/Arch)</strong> y disfruto tanto de construir
+      <strong>aplicaciones web full stack</strong> como de la programación de bajo nivel y la
+      arquitectura de computadoras. Busco sumarme a un equipo donde aportar esa versatilidad
+      y seguir aprendiendo.
+    </p>
+  </div>
+
+  <Image
+    src={profileImg}
+    width={512}
+    alt={`Foto de ${SITE.name}`}
+    loading="lazy"
+    class="order-1 object-cover object-top w-64 shrink-0 p-1 md:order-2 rotate-3 lg:p-2 aspect-square rounded-2xl bg-yellow-500/5 ring-1 ring-white/20"
+  />
+</article>

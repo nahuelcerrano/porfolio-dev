@@ -1,0 +1,20 @@
+---
+import TimelineItem from "@/components/ui/TimelineItem.astro"
+import type { TimelineEntry } from "@/data/timeline"
+
+interface Props {
+  entries: TimelineEntry[]
+}
+
+const { entries } = Astro.props
+---
+
+<ol class="relative mt-12">
+  {
+    entries.map((entry) => (
+      <li class="ms-4">
+        <TimelineItem {...entry} />
+      </li>
+    ))
+  }
+</ol>

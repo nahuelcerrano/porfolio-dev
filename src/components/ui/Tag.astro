@@ -1,0 +1,50 @@
+---
+import type { TagKey } from "@/data/projects"
+
+import React from "@/icons/React.astro"
+import Tailwind from "@/icons/Tailwind.astro"
+import Vue from "@/icons/Vue.astro"
+import Css from "@/icons/Css.astro"
+import Bootstrap from "@/icons/Bootstrap.astro"
+import Django from "@/icons/Django.astro"
+import C from "@/icons/C.astro"
+import CSharp from "@/icons/CSharp.astro"
+import DotNet from "@/icons/DotNet.astro"
+import AspNet from "@/icons/AspNet.astro"
+import MySql from "@/icons/MySql.astro"
+import Fusion360 from "@/icons/Fusion360.astro"
+
+interface Props {
+  tag: TagKey
+}
+
+interface TagStyle {
+  name: string
+  class: string
+  icon?: (props: { class?: string }) => any
+}
+
+const TAGS: Record<TagKey, TagStyle> = {
+  c: { name: "C", class: "bg-[#283593]", icon: C },
+  csharp: { name: "C#", class: "bg-[#68217a]", icon: CSharp },
+  dotnet: { name: ".NET 10", class: "bg-[#512bd4]", icon: DotNet },
+  aspnet: { name: "ASP.NET Core", class: "bg-[#0b5a94]", icon: AspNet },
+  react: { name: "React", class: "bg-[#2b7f96]", icon: React },
+  tailwind: { name: "Tailwind CSS", class: "bg-[#003159]", icon: Tailwind },
+  vue: { name: "Vue.js", class: "bg-[#2c8a60]", icon: Vue },
+  css: { name: "CSS", class: "bg-[#264de4]", icon: Css },
+  bootstrap: { name: "Bootstrap", class: "bg-[#5b23fb]", icon: Bootstrap },
+  django: { name: "Django", class: "bg-[#092e20]", icon: Django },
+  mysql: { name: "MySQL", class: "bg-[#00546b]", icon: MySql },
+  esp32: { name: "ESP32", class: "bg-[#8a1c1c]" },
+  fusion360: { name: "Fusion 360", class: "bg-[#a84300]", icon: Fusion360 },
+  print3d: { name: "Impresión 3D", class: "bg-gray-700" },
+}
+
+const { name, class: className, icon: Icon } = TAGS[Astro.props.tag]
+---
+
+<span class:list={["flex items-center gap-x-2 rounded-full text-xs text-white py-1 px-2", className]}>
+  {Icon && <Icon class="size-4" />}
+  {name}
+</span>
